@@ -1,3 +1,5 @@
+import { html } from 'hono/html';
+
 declare global {
   interface String {
     format(options: { [find: string]: string }): string;
@@ -126,40 +128,40 @@ This is caused by Twitter API downtime or a new bug. Try again in a little while
     </html>`
     .replace(/( {2})/g, '')
     .replace(/>\s+</gm, '><'),
-  MESSAGE_HTML: `<!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="${BRANDING_NAME}" property="og:title"/>
-        <meta content="${BRANDING_NAME}" property="og:site_name"/>
-        <title>${BRANDING_NAME}</title>
-        <style>
-          body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            padding: 0 20px;
-          }
-          h1 {
-            font-size: 4em;
-            font-weight: 900;
-            margin-bottom: 0;
-          }
-          h2 {
-            white-space: pre-wrap;
-          }
-          p {
-            font-size: 10px;
-            opacity: 0.3;
-          }
-        </style>
-      </head>
-      <body>
-        <h1>${BRANDING_NAME}</h1>
-        <h2>{message}</h2>
-      </body>
-    </html>`
-    .replace(/( {2})/g, '')
-    .replace(/>\s+</gm, '><'),
+  MESSAGE_HTML: (message: string) =>
+    html`<!doctype html>
+      <html lang="en">
+        <head>
+          <meta charset="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <meta content="${BRANDING_NAME}" property="og:title" />
+          <meta content="${BRANDING_NAME}" property="og:site_name" />
+          <title>${BRANDING_NAME}</title>
+          <style>
+            body {
+              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
+                sans-serif;
+              padding: 0 20px;
+            }
+            h1 {
+              font-size: 4em;
+              font-weight: 900;
+              margin-bottom: 0;
+            }
+            h2 {
+              white-space: pre-wrap;
+            }
+            p {
+              font-size: 10px;
+              opacity: 0.3;
+            }
+          </style>
+        </head>
+        <body>
+          <h1>${BRANDING_NAME}</h1>
+          <h2>${message}</h2>
+        </body>
+      </html>`,
   DEFAULT_AUTHOR_TEXT: 'Twitter',
 
   QUOTE_TEXT: `↘️ Quoting {name} (@{screen_name})`,
