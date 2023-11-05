@@ -5,7 +5,7 @@
 
 import { Hono } from 'hono';
 import { Constants } from '../constants';
-import { fetchCompletedTimeMiddleware } from '../middleware/fetchCompletedTime';
+import { fetchCompletedTimeMiddleware } from '../middlewares';
 import { Strings } from '../strings';
 import motd from '../../motd.json';
 
