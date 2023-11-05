@@ -4,9 +4,8 @@
   "description": "Embed Twitter videos, polls, and more on Discord and Telegram",
   "main": "dist/worker.js",
   "scripts": {
-    "build": "node esbuild.config.mjs",
-    "publish": "wrangler deploy --no-bundle",
-    "deploy": "wrangler deploy --no-bundle",
+    "dev": "wrangler dev src/worker.ts",
+    "deploy": "wrangler deploy --minify src/worker.ts",
     "log": "wrangler tail",
     "reload": "wrangler deploy --no-bundle && wrangler tail",
     "prettier": "prettier --write .",
