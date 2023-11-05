@@ -1,3 +1,6 @@
+/* Oembeds (used by Discord to enhance responses) 
+Yes, I actually made the endpoint /owoembed. Deal with it. **/
+
 import { Hono } from 'hono';
 import { Constants } from '../constants';
 import { fetchCompletedTimeMiddleware } from '../middlewares';

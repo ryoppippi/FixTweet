@@ -1,3 +1,7 @@
+/* Pass through profile requests to Twitter.
+   We don't currently have custom profile cards yet,
+   but it's something we might do. Maybe. **/
+
 import { Hono } from 'hono';
 import { Constants } from '../constants';
 import {
