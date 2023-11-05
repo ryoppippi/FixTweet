@@ -7,5 +7,8 @@ export const fetchCompletedTimeMiddleware: MiddlewareHandler<{
     fetchCompletedTime: number;
   };
 }> = async (c, next) => {
+  if (c.var.fetchCompletedTime == null) {
+    c.set('fetchCompletedTime', 0);
+  }
   await next();
 };
