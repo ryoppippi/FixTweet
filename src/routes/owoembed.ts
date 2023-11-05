@@ -1,8 +1,3 @@
-/**
- * owoembed route
- *
- */
-
 import { Hono } from 'hono';
 import { Constants } from '../constants';
 import { fetchCompletedTimeMiddleware } from '../middlewares';
